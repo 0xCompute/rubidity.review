@@ -1,25 +1,19 @@
 # encoding: utf-8
 
 
-get '/beer/:key' do |key|
+get '/beer/(r|rnd|rand|random)' do     ## special keys for random beer
+  Beer.rnd
+end
 
-  if ['r', 'rnd', 'rand', 'random'].include?( key )
-    # special key for random beer
-    # Note: use .first (otherwise will get ActiveRelation not Model)
-    beer = Beer.rnd.first
-  else
-    beer = Beer.find_by_key!( key )
-  end
+get '/beer/:key' do 
+  Beer.find_by! key: params['key']
 end
 
 
-get '/brewery/:key' do |key|
+get '/brewery/(r|rnd|rand|random)' do    ## special keys for random brewery
+  Brewery.rnd
+end
 
-  if ['r', 'rnd', 'rand', 'random'].include?( key )
-    # special key for random brewery
-    # Note: use .first (otherwise will get ActiveRelation not Model)
-    brewery = Brewery.rnd.first
-  else
-    brewery = Brewery.find_by_key!( key )
-  end
+get '/brewery/:key' do
+  Brewery.find_by! key: params['key']
 end
