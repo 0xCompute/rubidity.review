@@ -59,6 +59,23 @@ because it assumes "replace" semantics.
 
 
 
+Aside:  "replace" semantics?!
+
+```ruby
+  def value=(new_value)
+     # ...
+  end
+
+  def deserialize(serialized_value)
+    self.value = serialized_value
+  end  
+```
+
+the value gets replaced inline using `value=`. the value should only
+get set only once on init!  and than is unreplaceable (immutable). create a new typed variable instead of replace inline.
+
+
+
 
 ### Method Missing Magic & "Explicit" One-to-One Type Mappings Instead Of "Quick & Dirty" Generic Type "Wrappers" 
 
@@ -73,6 +90,41 @@ And options are many with the preference of doing the hard work
 coding and writing out all the types one by one!
 
 
+Aside - method_missing?!
+
+``` ruby
+  def method_missing(name, *args, &block)
+    if value.respond_to?(name)
+      result = value.send(name, *args, &block)
+      
+      if result.class == value.class
+        begin
+          result = type.check_and_normalize_literal(result)
+        rescue ContractErrors::VariableTypeError => e
+          if type.is_uint?
+            result = TypedVariable.create(:uint256, result)
+          else
+            raise
+          end
+        end
+      end
+      
+      result
+      
+      if name.to_s.end_with?("=") && !%w[>= <=].include?(name.to_s[-2..])
+        self.value = result if type.is_value_type?
+        self
+      else
+        result
+      end
+    else
+      super
+    end
+  end
+```
+
+
+
 ### Layers, Layers, Layers (Proxies, Proxies, Proxies) - No Lasagna
 
 The array and mapping typed variable use "proxy classes" inside
@@ -82,7 +134,11 @@ by keeping it simple.
 
 
 
-
+Twin Typed Classes:
+- `ArrayType` & `ArrayType::Proxy`
+- `MappingType` & `MappingType::Proxy`
+- `ContractType` & `ContractType::Proxy`
+- ...
 
 
 
