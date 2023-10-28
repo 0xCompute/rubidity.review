@@ -33,10 +33,11 @@ build out big big things.
 ## Rubidity Types
 
 the (core typed) code is:
-- [type.rb](type.rb)
-- [typed_variable.rb](typed_variable.rb)
-- [array_type.rb](array_type.rb)
-- [mapping_type.rb](mapping_type.rb)
+- [type.rb](typed/lib/type.rb)
+- [typed_variable.rb](typed/lib/typed_variable.rb)
+- [array_type.rb](typed/lib/array_type.rb)
+- [mapping_type.rb](typed/lib/mapping_type.rb)
+- [contract_type.rb](typed/lib/contract_type.rb)
 
 
 the great news - this code for the type machinery is basically "isolated"
