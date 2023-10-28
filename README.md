@@ -11,10 +11,10 @@ and try to add (more) tests.
 
 ## "Off-Rails"  - Rubidity Core NOT "Isolated"
 
-Let's say Rails is great. It's magic. It's amazing.
+Let's say it out loud - Rails is great. It's magic. It's amazing.
 
-However, to make the rubidity core executiong engine
-more secure (and smaller) less dependencies is more!
+However, to make the rubidity core execution engine (interpreter)
+more secure (and smaller and simpler) less dependencies is more!
 
 Thus, allow me to preach again and again
 to break out ("isolate") the rubidity core code 
@@ -40,24 +40,67 @@ the (core typed) code is:
 - [contract_type.rb](typed/lib/contract_type.rb)
 
 
+
 the great news - this code for the type machinery is basically "isolated"
 and i recommend to move it to its own module as the foundation types (library) incl. the rspec tests.
+
+<details>
+<summary markdown="1">Show respc test results</summary>
+
+```
+rubidity.review\typed> rspec
+..............
+
+Finished in 0.14714 seconds (files took 13.25 seconds to load)
+14 examples, 0 failures
+```
+
+or
+
+```
+rubidity.review\typed> rspec --format documentation
+
+Type
+  #can_be_assigned_from?
+    returns true if types are the same
+    returns true if both types are integer types and the number of bits of the first type is greater than or equal to the number of bits of the second type
+    returns false otherwise
+    returns true if a literal can be assigned to the type
+    raises a VariableTypeError if a literal cannot be assigned to the type
+  #values_can_be_compared?
+    returns true if types are compatible
+    returns true if both types are integer types
+    returns false otherwise
+    returns true if a literal can be compared with the type
+    returns false if a literal cannot be compared with the type
+
+TypedVariable
+  .create_or_validate
+    returns the same TypedVariable if the value is a TypedVariable and its type can be assigned from the specified type
+    is fine to go up in bits
+    creates a new TypedVariable if the value is not a TypedVariable
+    raises a VariableTypeError if the value is a TypedVariable and its type cannot be assigned from the specified type
+
+Finished in 0.08964 seconds (files took 4.97 seconds to load)
+14 examples, 0 failures
+```
+
+</details>
 
 
 
 ### Serialize / Deserialize
 
-The current code use a "typed var holder" class with "replace" semantics.
+The current code uses a "typed var holder" class with "replace" semantics.
 "Replace" semantics is flawed because you CANNOT replace, for example,
 a bool true or false or (if added enums that are integer constants).
 
 The better approach is to ALWAYS create a new typed var (and never "replace" inline). Once created you CANNOT change the value inplace.
 Of course, if the typed var is a reference type such as array or mapping
-you CAN change / replace the mapping items or array items.
+you CAN change / replace the mapping or array items.
 
 The deserialize SHOULD not be method of typed variable 
 because it assumes "replace" semantics. 
-
 
 
 Aside:  "replace" semantics?!
@@ -84,7 +127,7 @@ For now only mapping and array get an explicit typed class.
 All other "value" types are (re)using a kind of genric typed class
 that than delegates via method_missing to wherever.
 Yes, a security and performance nightmare.
-While this apprach may look like ingenius for being "quick & dirty"
+While this approach may look like ingenious for being "quick & dirty"
 it is a clasic anti-pattern / major design flaw, that is,
 do NOT use method_missing UNLESS it is the last option.
 And options are many with the preference of doing the hard work
@@ -130,8 +173,7 @@ Aside - method_missing?!
 
 The array and mapping typed variable use "proxy classes" inside
 the typed variable. That proxy / layer inside the typed classes 
-is redundant.  The typed variable / class is already the "proxy" or "front" to define the API for the type, thus, less is more.  better security
-by keeping it simple.
+is redundant.  The typed variable / class is already the "proxy" or "front" to define the API for the type, thus, less is more.  better security by keeping it simple.
 
 
 
@@ -140,6 +182,7 @@ Twin Typed Classes:
 - `MappingType` & `MappingType::Proxy`
 - `ContractType` & `ContractType::Proxy`
 - ...
+
 
 
 
@@ -161,10 +204,10 @@ Triva: Vyper - a "pythonic" more secure and simpler ("modern") solidity alternat
 >
 > The following constructs are not included because their use can lead to misleading or difficult to understand code:
 >
-> Modifiers
-> **Class inheritance**
-> Inline assembly
-> ...
+> - Modifiers
+> - **Class inheritance**
+> - Inline assembly
+> - ...
 
 
 

@@ -1,5 +1,5 @@
 # spec/models/typed_variable_spec.rb
-require 'rails_helper'
+require_relative 'spec_helper'
 
 RSpec.describe TypedVariable, type: :model do
   describe '.create_or_validate' do

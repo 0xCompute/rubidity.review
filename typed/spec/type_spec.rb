@@ -1,5 +1,6 @@
 # spec/models/type_spec.rb
-require 'rails_helper'
+require_relative 'spec_helper'
+
 
 RSpec.describe Type, type: :model do
   describe '#can_be_assigned_from?' do
