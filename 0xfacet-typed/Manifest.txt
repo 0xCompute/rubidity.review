@@ -1,0 +1,12 @@
+CHANGELOG.md
+Manifest.txt
+README.md
+Rakefile
+lib/0xfacet/typed.rb
+lib/0xfacet/typed/array_type.rb
+lib/0xfacet/typed/attr_public_read_private_write.rb
+lib/0xfacet/typed/contract_errors.rb
+lib/0xfacet/typed/contract_type.rb
+lib/0xfacet/typed/mapping_type.rb
+lib/0xfacet/typed/type.rb
+lib/0xfacet/typed/typed_variable.rb

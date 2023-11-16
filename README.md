@@ -1,15 +1,47 @@
-# Rubidity O.G (Dumb Contracts) Public Code Review / (More) Tests
+# Rubidity O.G. (Dumb Contracts) Public Code Review / (More) Tests / Gems & More
 
 
-The idea is to look at the code as-is (that is, not suggestion new or alternate syntax) in the review / commentary 
-and try to add (more) tests.
+The idea is to look at the code as-is (that is, NOT suggesting new or alternate syntax and semantics) in the review / commentary 
+and try to add (more) tests 
+and start to (re)package / modular-ize 
+code in "place holder" gems (waiting for adoption by the founders) such as 0xfacet and 0xfacet-typed and 0xfacet-rubidity
+
 
 **Yes, you can.  You are welcome to join in and comments / discuss / debate.**
 
 
+## Gems, Gems, Gems
+
+The idea here is break the "majestic rails rubidity monolith"
+also known as "facet vm" (formerly "ethscriptions vm") up into easier to (re)use modules.
+
+For example, why not bundle up a "core" language "rubidity" gem with 
+no dependencies on any blockchain and break out "core / standard" 
+contracts samples and database (SQL) and runtime modules or such.
 
 
-## "Off-Rails"  - Rubidity Core NOT "Isolated"
+### 0xfacet  - base foundation
+
+
+
+### 0xfacet-typed   - (solidity-like) types incl. address, bytes, (frozen) string, uint, and more
+
+
+
+### 0xfacet-rubidity  - rubidity o.g. language interpreter
+
+
+
+
+
+
+
+
+
+## Code Review / Commentary
+
+
+### "Off-Rails"  - Rubidity Core NOT "Isolated"
 
 Let's say it out loud - Rails is great. It's magic. It's amazing.
 
@@ -30,7 +62,7 @@ build out big big things.
 
 
 
-## Rubidity Types
+### Rubidity Types
 
 the (core typed) code is:
 - [type.rb](typed/lib/type.rb)
@@ -89,7 +121,7 @@ Finished in 0.08964 seconds (files took 4.97 seconds to load)
 
 
 
-### Serialize / Deserialize
+#### Serialize / Deserialize
 
 The current code uses a "typed var holder" class with "replace" semantics.
 "Replace" semantics is flawed because you CANNOT replace, for example,
@@ -121,7 +153,7 @@ get set only once on init!  and than is unreplaceable (immutable). create a new 
 
 
 
-### Method Missing Magic & "Explicit" One-to-One Type Mappings Instead Of "Quick & Dirty" Generic Type "Wrappers" 
+#### Method Missing Magic & "Explicit" One-to-One Type Mappings Instead Of "Quick & Dirty" Generic Type "Wrappers" 
 
 For now only mapping and array get an explicit typed class.
 All other "value" types are (re)using a kind of genric typed class
@@ -169,7 +201,7 @@ Aside - method_missing?!
 
 
 
-### Layers, Layers, Layers (Proxies, Proxies, Proxies) - No Lasagna
+#### Layers, Layers, Layers (Proxies, Proxies, Proxies) - No Lasagna
 
 The array and mapping typed variable use "proxy classes" inside
 the typed variable. That proxy / layer inside the typed classes 
@@ -187,7 +219,7 @@ Twin Typed Classes:
 
 
 
-## Biggie - Multiple-Inheritance ("Diamond-Shaped") Support In Rubidity
+### Biggie - Multiple-Inheritance ("Diamond-Shaped") Support In Rubidity
 
 Only code what you use. Remove unnecessary fluff.
 All contracts in /app/models/contracts do NOT use any multiple-inheritance,
@@ -208,8 +240,6 @@ Triva: Vyper - a "pythonic" more secure and simpler ("modern") solidity alternat
 > - **Class inheritance**
 > - Inline assembly
 > - ...
-
-
 
 
 
