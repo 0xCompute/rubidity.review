@@ -7,6 +7,7 @@ and start to (re)package / modular-ize
 code in "place holder" gems (waiting for adoption by the founders) such as 0xfacet and 0xfacet-typed and 0xfacet-rubidity
 
 
+
 **Yes, you can.  You are welcome to join in and comments / discuss / debate.**
 
 
@@ -20,19 +21,13 @@ no dependencies on any blockchain and break out "core / standard"
 contracts samples and database (SQL) and runtime modules or such.
 
 
-### 0xfacet  - base foundation
+The first published "place holder" modules / gems include:
 
+[**0xfacet**](0xfacet) - facet vm base foundation
 
+[**0xfacet-typed**](0xfacet-typed) - solidity-like value and reference types for rubidity o.g.
 
-### 0xfacet-typed   - (solidity-like) types incl. address, bytes, (frozen) string, uint, and more
-
-
-
-### 0xfacet-rubidity  - rubidity o.g. language interpreter
-
-
-
-
+[**0xfacet-rubidity**](0xfacet-rubidity) - rubidity o.g. facet vm contract programming language interpreter
 
 
 
