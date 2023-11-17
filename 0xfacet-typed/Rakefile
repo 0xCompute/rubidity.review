@@ -1,11 +1,11 @@
 require 'hoe'
 
-# require './lib/0xfacet/typed/version.rb'
+require './lib/0xfacet/typed/version.rb'
 
 
 Hoe.spec '0xfacet-typed' do
 
-  self.version =   '0.0.1'
+  self.version =   Facet::Module::Typed::VERSION
 
   self.summary = '0xfacet-typed - solidity-like value and reference types for rubidity o.g.'
   self.description = summary
@@ -20,6 +20,8 @@ Hoe.spec '0xfacet-typed' do
   self.history_file = 'CHANGELOG.md'
 
   self.extra_deps = [
+    ## ['0xfacet'],
+    ['activesupport', '>= 7.0'],
   ]
 
 

@@ -29,6 +29,11 @@ The first published "place holder" modules / gems include:
 
 [**0xfacet-rubidity**](0xfacet-rubidity) - rubidity o.g. facet vm contract programming language interpreter
 
+[**0xfacet-contracts**](0xfacet-contracts) - rubidity o.g. standard contracts (incl. ERC20,  PublicMintERC20, ERC721, GenerativeERC721, etc.)
+
+[**0xfacet-uniswap**](0xfacet-uniswap) - rubidity o.g. uniswap v2 contracts (incl. UniswapV2Factory, UniswapV2Pair, UniswapV2Router, etc.)
+
+
 
 
 
@@ -60,11 +65,11 @@ build out big big things.
 ### Rubidity Types
 
 the (core typed) code is:
-- [type.rb](typed/lib/type.rb)
-- [typed_variable.rb](typed/lib/typed_variable.rb)
-- [array_type.rb](typed/lib/array_type.rb)
-- [mapping_type.rb](typed/lib/mapping_type.rb)
-- [contract_type.rb](typed/lib/contract_type.rb)
+- [type.rb](0xfacet-typed/lib/0xfacet/typed/type.rb)
+- [typed_variable.rb](0xfacet-typed/lib/0xfacet/typed/typed_variable.rb)
+- [array_type.rb](0xfacet-typed/lib/0xfacet/typed/array_type.rb)
+- [mapping_type.rb](0xfacet-typed/lib/0xfacet/typed/mapping_type.rb)
+- [contract_type.rb](0xfacet-typed/lib/0xfacet/typed/contract_type.rb)
 
 
 
@@ -75,7 +80,7 @@ and i recommend to move it to its own module as the foundation types (library) i
 <summary markdown="1">Show respc test results</summary>
 
 ```
-rubidity.review\typed> rspec
+rubidity.review\0xfacet-typed> rspec
 ..............
 
 Finished in 0.14714 seconds (files took 13.25 seconds to load)
@@ -85,7 +90,7 @@ Finished in 0.14714 seconds (files took 13.25 seconds to load)
 or
 
 ```
-rubidity.review\typed> rspec --format documentation
+rubidity.review\0xfacet-typed> rspec --format documentation
 
 Type
   #can_be_assigned_from?

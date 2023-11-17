@@ -10,3 +10,4 @@ lib/0xfacet/typed/contract_type.rb
 lib/0xfacet/typed/mapping_type.rb
 lib/0xfacet/typed/type.rb
 lib/0xfacet/typed/typed_variable.rb
+lib/0xfacet/typed/version.rb
