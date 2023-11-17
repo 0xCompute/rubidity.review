@@ -1,0 +1,32 @@
+require 'hoe'
+
+# require './lib/0xfacet/contracts/version.rb'
+
+
+Hoe.spec '0xfacet-contracts' do
+
+  self.version =   '0.0.1'
+
+  self.summary = '0xfacet-contracts - rubidity o.g. standard contracts (incl. ERC20, PublicMintERC20, ERC721, GenerativeERC721, etc.)'
+  self.description = summary
+
+  self.urls    = { home: 'https://github.com/s6ruby/rubidity.review' }
+
+  self.author  = 'Gerald Bauer'
+  self.email   = 'gerald.bauer@gmail.com'
+
+  # switch extension to .markdown for gihub formatting
+  self.readme_file  = 'README.md'
+  self.history_file = 'CHANGELOG.md'
+
+  self.extra_deps = [
+    ['0xfacet-rubidity', '>= 0.0.1'],
+  ]
+
+
+  self.licenses = ['Public Domain']
+
+  self.spec_extras = {
+    required_ruby_version: '>= 2.3'
+  }
+end

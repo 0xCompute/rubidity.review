@@ -1,0 +1,12 @@
+CHANGELOG.md
+Manifest.txt
+README.md
+Rakefile
+lib/0xfacet/uniswap.rb
+lib/0xfacet/uniswap/UniswapSetupZapV2.rb
+lib/0xfacet/uniswap/UniswapV2Callee.rb
+lib/0xfacet/uniswap/UniswapV2ERC20.rb
+lib/0xfacet/uniswap/UniswapV2Factory.rb
+lib/0xfacet/uniswap/UniswapV2Pair.rb
+lib/0xfacet/uniswap/UniswapV2Router.rb
+lib/0xfacet/uniswap/UniswapV2RouterWithRewards.rb

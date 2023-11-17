@@ -29,10 +29,35 @@ The first published "place holder" modules / gems include:
 
 [**0xfacet-rubidity**](0xfacet-rubidity) - rubidity o.g. facet vm contract programming language interpreter
 
+
+
+Why not bundle up contracts in gems and use gem packages 
+for versioning? Let's try:
+
+
 [**0xfacet-contracts**](0xfacet-contracts) - rubidity o.g. standard contracts (incl. ERC20,  PublicMintERC20, ERC721, GenerativeERC721, etc.)
+
+- [ERC20](0xfacet-contracts/lib/0xfacet/contracts/ERC20.rb)
+- [ERC721](0xfacet-contracts/lib/0xfacet/contracts/ERC721.rb)
+- [EtherBridge](0xfacet-contracts/lib/0xfacet/contracts/EtherBridge.rb)
+- [EtherBridgeV2](0xfacet-contracts/lib/0xfacet/contracts/EtherBridgeV2.rb)
+- [EthscriptionERC20Bridge](0xfacet-contracts/lib/0xfacet/contracts/EthscriptionERC20Bridge.rb)
+- [GenerativeERC721](0xfacet-contracts/lib/0xfacet/contracts/GenerativeERC721.rb)
+- [OpenEditionERC721](0xfacet-contracts/lib/0xfacet/contracts/OpenEditionERC721.rb)
+- [PublicMintERC20](0xfacet-contracts/lib/0xfacet/contracts/PublicMintERC20.rb)
+- [UnsafeNoApprovalERC20](0xfacet-contracts/lib/0xfacet/contracts/UnsafeNoApprovalERC20.rb)
+- [Upgradeable](0xfacet-contracts/lib/0xfacet/contracts/Upgradeable.rb)
+
 
 [**0xfacet-uniswap**](0xfacet-uniswap) - rubidity o.g. uniswap v2 contracts (incl. UniswapV2Factory, UniswapV2Pair, UniswapV2Router, etc.)
 
+- [UniswapSetupZapV2](0xfacet-uniswap/lib/0xfacet/uniswap/UniswapSetupZapV2.rb)
+- [UniswapV2Callee](0xfacet-uniswap/lib/0xfacet/uniswap/UniswapV2Callee.rb)
+- [UniswapV2ERC20](0xfacet-uniswap/lib/0xfacet/uniswap/UniswapV2ERC20.rb)
+- [UniswapV2Factory](0xfacet-uniswap/lib/0xfacet/uniswap/UniswapV2Factory.rb)
+- [UniswapV2Pair](0xfacet-uniswap/lib/0xfacet/uniswap/UniswapV2Pair.rb)
+- [UniswapV2Router](0xfacet-uniswap/lib/0xfacet/uniswap/UniswapV2Router.rb)
+- [UniswapV2RouterWithRewards](0xfacet-uniswap/lib/0xfacet/uniswap/UniswapV2RouterWithRewards.rb)
 
 
 

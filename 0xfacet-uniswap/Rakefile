@@ -1,0 +1,33 @@
+require 'hoe'
+
+# require './lib/0xfacet/uniswap/version.rb'
+
+
+Hoe.spec '0xfacet-uniswap' do
+
+  self.version =   '0.0.1'
+
+  self.summary = '0xfacet-uniswap - rubidity o.g. uniswap v2 contracts (incl. UniswapV2Factory, UniswapV2Pair, UniswapV2Router, etc.)'
+  self.description = summary
+
+  self.urls    = { home: 'https://github.com/s6ruby/rubidity.review' }
+
+  self.author  = 'Gerald Bauer'
+  self.email   = 'gerald.bauer@gmail.com'
+
+  # switch extension to .markdown for gihub formatting
+  self.readme_file  = 'README.md'
+  self.history_file = 'CHANGELOG.md'
+
+  self.extra_deps = [
+    ['0xfacet-rubidity', '>= 0.0.1'],
+    ['0xfacet-contracts', '>= 0.0.1'],
+  ]
+
+
+  self.licenses = ['Public Domain']
+
+  self.spec_extras = {
+    required_ruby_version: '>= 2.3'
+  }
+end

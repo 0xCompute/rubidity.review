@@ -1,0 +1,15 @@
+CHANGELOG.md
+Manifest.txt
+README.md
+Rakefile
+lib/0xfacet/contracts.rb
+lib/0xfacet/contracts/ERC20.rb
+lib/0xfacet/contracts/ERC721.rb
+lib/0xfacet/contracts/EtherBridge.rb
+lib/0xfacet/contracts/EtherBridgeV2.rb
+lib/0xfacet/contracts/EthscriptionERC20Bridge.rb
+lib/0xfacet/contracts/GenerativeERC721.rb
+lib/0xfacet/contracts/OpenEditionERC721.rb
+lib/0xfacet/contracts/PublicMintERC20.rb
+lib/0xfacet/contracts/UnsafeNoApprovalERC20.rb
+lib/0xfacet/contracts/Upgradeable.rb
